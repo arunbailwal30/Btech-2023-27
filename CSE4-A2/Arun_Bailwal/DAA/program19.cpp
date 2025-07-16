@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> dijkstra(int V, int start, vector<vector<pair<int,int>>> &graph){
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
-    vector<int> dist(V, INT8_MAX);
+    vector<int> dist(V, INT_MAX);
     dist[start] =0;
     pq.push({0,start});
 
