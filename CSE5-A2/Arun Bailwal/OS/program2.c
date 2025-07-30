@@ -7,27 +7,22 @@
 #include<unistd.h>
 
 int main(){
-    pid_t pid1, pid2;
-    pid1 = fork();
+    pid_t pid;
+    pid = fork();
+    if(pid< 0){
+        printf("Fork failed\n");
+        return 1;
+    }
+    if(pid==0){
+        printf("This is child process \n");
+        printf("Child process id: %d \n", getpid());
+        printf("Parent process id: %d\n\n", getppid());
 
-    if(pid1 == 0){
-        wait(NULL); 
-        int sum = 0;
-        for(int i = 1; i <= 10; i += 2) {
-            sum += i;
-        
-        }
-        printf("Child: Odd element sum = %d\n", sum);
-        exit(0);
     }else{
-        int sum = 0;
-        for(int i = 0; i <= 10; i += 2) {
-            sum += i;
-        }
-        printf("Parent: Even element sum = %d\n", sum);
-        wait(NULL);
-        exit(0);
+        printf("This is parent process\n");
+        printf("Parent process id: %d\n", getpid());
+        printf("Child process id: %d\n\n", pid);
     }
 
-
+    return 0;
 }
