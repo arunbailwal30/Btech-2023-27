@@ -1,17 +1,11 @@
-#include<stdio.h>
-#include<unistd.h>
+from __future__ import annotations
 
-int main(){
-    int x =fork();
-    if(x <0){
-        printf("Fork failed!\n");
-        return 1;
-    }
-    if(x ==0)
-        printf("This is child process. PID: %d\n", getpid());
-    else if(x > 1) 
-        printf("This is parent process. PID %d\n", getpid());
+from pip._internal.utils import _log
+
+# init_logging() must be called before any call to logging.getLogger()
+# which happens at import of most modules.
+_log.init_logging()
 
 
-    return 0;
-}
+def main(args: list[str] | None = None) -> int:
+    """This is preserved for old console scripts that may 

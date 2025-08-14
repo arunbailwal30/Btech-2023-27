@@ -1,28 +1,22 @@
-// parent should print even element sum child should print odd element sum . parent should finish first
+"""Build Environment used for isolation during sdist building"""
 
+from __future__ import annotations
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<sys/wait.h>
-#include<unistd.h>
+import logging
+import os
+import pathlib
+import site
+import sys
+import textwrap
+from collections import OrderedDict
+from collections.abc import Iterable
+from types import TracebackType
+from typing import TYPE_CHECKING, Protocol
 
-int main(){
-    pid_t pid;
-    pid = fork();
-    if(pid< 0){
-        printf("Fork failed\n");
-        return 1;
-    }
-    if(pid==0){
-        printf("This is child process \n");
-        printf("Child process id: %d \n", getpid());
-        printf("Parent process id: %d\n\n", getppid());
+from pip._vendor.packaging.version import Version
 
-    }else{
-        printf("This is parent process\n");
-        printf("Parent process id: %d\n", getpid());
-        printf("Child process id: %d\n\n", pid);
-    }
-
-    return 0;
-}
+from pip import __file__ as pip_location
+from pip._internal.cli.spinners import open_spinner
+from pip._internal.locations import get_platlib, get_purelib, get_scheme
+from pip._internal.metadata import get_default_environment, get_environment
+from pip._internal.utils.log
