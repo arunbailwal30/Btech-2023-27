@@ -1,6 +1,19 @@
-"""Metadata generation logic for legacy source distributions."""
+#include<dirent.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-import logging
-import os
 
-from pip._inter
+int main(){
+    DIR *dir;struct dirent *entry;
+    dir = opendir(".");
+    if(dir == NULL){
+        printf("Error");
+        return 1;
+    }
+
+    while((entry = readdir(dir)) != NULL){
+        printf("%s\n", entry->d_name);
+    }
+    closedir(dir);
+
+}
