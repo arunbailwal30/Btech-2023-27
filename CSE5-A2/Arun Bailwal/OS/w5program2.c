@@ -1,3 +1,4 @@
+
 #include<stdlib.h>
 #include<stdio.h>
 
@@ -29,20 +30,19 @@ int find( Process *remaining[], int available[], int n , int r){
 }
 
 void Bankers(Process *allocated[], Process *remaining[], Process *maxneed[], int available[], int n , int r){
-    printf("Safe sequence : ");
     for(int i=0;i<n;i++){
         int ind = find(remaining, available, n , r);
         if(ind == -1){
-            printf("Request can't be fulfilled\n");
+            printf("Deadlock Detected\n");
             return;
         }
-        printf("P%d ",ind);
         for (int  j = 0; j<r; j++)
         {
             remaining[ind]->res[j] = 0;
             available[j] += allocated[ind]->res[j]; 
         }
     }
+    printf("\nDeadlock not detected\n");
 }
 
 
