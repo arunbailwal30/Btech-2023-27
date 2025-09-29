@@ -29,7 +29,7 @@ int find( Process *remaining[], int available[], int n , int r){
     return -1;
 }
 
-void Bankers(Process *allocated[], Process *remaining[], Process *maxneed[], int available[], int n , int r){
+void detection(Process *allocated[], Process *remaining[], Process *maxneed[], int available[], int n , int r){
     for(int i=0;i<n;i++){
         int ind = find(remaining, available, n , r);
         if(ind == -1){
@@ -50,7 +50,7 @@ int main(){
     int n,r ;
     printf("No. of processes: ");
     scanf("%d",&n);
-    printf("No. of resources");
+    printf("No. of resources: ");
     scanf("%d",&r);
     Process* maxneed[n], *allocated[n], *remaining[n], *total, *totalAllocated;
     int available[r];
@@ -81,7 +81,7 @@ int main(){
         scanf("%d", &(total->res[i]));
         available[i] = total->res[i] - totalAllocated->res[i]; 
     }
-    Bankers(allocated, remaining, maxneed, available, n, r);
+    detection(allocated, remaining, maxneed, available, n, r);
 
     return 0;
 }

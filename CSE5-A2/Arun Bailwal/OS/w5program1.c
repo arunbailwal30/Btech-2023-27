@@ -50,7 +50,7 @@ int main(){
     int n,r ;
     printf("No. of processes: ");
     scanf("%d",&n);
-    printf("No. of resources");
+    printf("No. of resources: ");
     scanf("%d",&r);
     Process* maxneed[n], *allocated[n], *remaining[n], *total, *totalAllocated;
     int available[r];
