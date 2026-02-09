@@ -3,8 +3,8 @@
 %}
 
 %%
-^[0-9]*\.[0-9]+ {printf("This is a float\n");}
-^[0-9]* {printf("This is an integer\n");}
+^[+-]?[0-9]*\.[0-9]+ {printf("This is a float\n");}
+^[+-]?[0-9]+ {printf("This is an integer\n");}
 .* {printf("This is not a valid number\n");}
 
 %%

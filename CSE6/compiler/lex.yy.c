@@ -360,10 +360,9 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[13] =
+static const flex_int16_t yy_accept[9] =
     {   0,
-        3,    2,    5,    3,    4,    3,    2,    3,    1,    3,
-        2,    0
+        0,    0,    5,    3,    4,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -372,16 +371,16 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    3,    1,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    3,    4,    4,    4,    3,    4,
+        4,    4,    3,    4,    4,    4,    4,    4,    3,    4,
+        4,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    3,    4,    4,    4,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        3,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        3,    4,    4,    4,    4,    4,    3,    4,    4,    4,
+        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -400,31 +399,27 @@ static const YY_CHAR yy_ec[256] =
 
 static const YY_CHAR yy_meta[5] =
     {   0,
-        1,    2,    1,    1
+        1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[15] =
+static const flex_int16_t yy_base[9] =
     {   0,
-       11,    0,   12,    0,   14,    7,    4,    0,    0,    0,
-        0,   14,    8,    5
+        0,    0,    5,    6,    6,    6,    6,    6
     } ;
 
-static const flex_int16_t yy_def[15] =
+static const flex_int16_t yy_def[9] =
     {   0,
-       13,   12,   12,   14,   12,   14,   12,   14,    6,    6,
-        7,    0,   12,   12
+        8,    1,    8,    8,    8,    8,    8,    0
     } ;
 
-static const flex_int16_t yy_nxt[19] =
+static const flex_int16_t yy_nxt[11] =
     {   0,
-        4,    5,    6,    7,    8,    8,   10,   11,    4,    4,
-        9,   12,    5,    3,   12,   12,   12,   12
+        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
     } ;
 
-static const flex_int16_t yy_chk[19] =
+static const flex_int16_t yy_chk[11] =
     {   0,
-        2,    2,    2,    2,    7,   14,    7,    7,   13,   13,
-        6,    3,    1,   12,   12,   12,   12,   12
+        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -441,11 +436,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "p4.l"
-#line 2 "p4.l"
+#line 1 "p12.l"
+#line 2 "p12.l"
+
 #include<stdio.h>
-#line 448 "lex.yy.c"
-#line 449 "lex.yy.c"
+int vowels=0, consonants=0;
+#line 445 "lex.yy.c"
+#line 446 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -625,9 +622,6 @@ extern int yylex (void);
 #endif
 
 #define YY_RULE_SETUP \
-	if ( yyleng > 0 ) \
-		YY_CURRENT_BUFFER_LVALUE->yy_at_bol = \
-				(yytext[yyleng - 1] == '\n'); \
 	YY_USER_ACTION
 
 /** The main scanner function which does all the work.
@@ -665,9 +659,9 @@ YY_DECL
 		}
 
 	{
-#line 5 "p4.l"
+#line 7 "p12.l"
 
-#line 671 "lex.yy.c"
+#line 665 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -682,7 +676,6 @@ YY_DECL
 		yy_bp = yy_cp;
 
 		yy_current_state = (yy_start);
-		yy_current_state += YY_AT_BOL();
 yy_match:
 		do
 			{
@@ -695,13 +688,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 13 )
+				if ( yy_current_state >= 9 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 14 );
+		while ( yy_base[yy_current_state] != 6 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -727,25 +720,25 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 6 "p4.l"
-{printf("This is a float\n");}
+#line 8 "p12.l"
+{vowels++;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 7 "p4.l"
-{printf("This is an integer\n");}
+#line 9 "p12.l"
+{consonants++;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "p4.l"
-{printf("This is not a valid number\n");}
+#line 10 "p12.l"
+{}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 10 "p4.l"
+#line 13 "p12.l"
 ECHO;
 	YY_BREAK
-#line 749 "lex.yy.c"
+#line 742 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1030,7 +1023,6 @@ static int yy_get_next_buffer (void)
 	char *yy_cp;
     
 	yy_current_state = (yy_start);
-	yy_current_state += YY_AT_BOL();
 
 	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
 		{
@@ -1043,7 +1035,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 13 )
+			if ( yy_current_state >= 9 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1071,11 +1063,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 13 )
+		if ( yy_current_state >= 9 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 12);
+	yy_is_jam = (yy_current_state == 8);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1190,8 +1182,6 @@ static int yy_get_next_buffer (void)
 	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
 	*(yy_c_buf_p) = '\0';	/* preserve yytext */
 	(yy_hold_char) = *++(yy_c_buf_p);
-
-	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = (c == '\n');
 
 	return c;
 }
@@ -1753,12 +1743,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 10 "p4.l"
+#line 13 "p12.l"
 
 
 int main(){
-    printf("Enter any number you want : ");
+    printf("Enter string: ");
     yylex();
+    printf("vowels: %d\nconsonants: %d\n",vowels, consonants);
     return 0;
 }
 int yywrap(){
