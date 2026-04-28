@@ -4,7 +4,7 @@
 
 %%
  
-^[a-zA-Z_][a-zA-Z0-9]* {printf("this is valid identifier: %s\n", yytext);}
+^[a-zA-Z_][a-zA-Z0-9_]* {printf("this is valid identifier: %s\n", yytext);}
 .* {printf("this is not a identifier: %s\n", yytext);}
 %%
 int main(){
